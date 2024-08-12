@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div id="view1" class="view">
+@Html.AntiForgeryToken()
+
+       <form id="dynamicForm" method="post" action="/DataGeneration/submitDynamicForm">>
+        <div class="container">
+           
+           <div class="wrap">
+               <h2>Add Input Fields</h2>
+               <button class="addButton"> + </button>
+           </div>
+
+        <div class="form-group">
+       
+        <label> FieldName </label>
+        <input type="text" name="FieldName"  value=""/>
+        
+        
+            <label> DataType</label>
+            <select class="dataTypeDropdown" id="dataTypeDropdownValue" name="DataType">
+
+            </select>
+            
+            
+            <label>Field Description</label>
+            <input type="text" name="FieldDescription" value=""/>
+            
+        <button class="removeButton" style="display:none"> X </button>
+        
+        </div>
+         <button type="submit">Submit</button>
+        </div>
+        </form>
+        </div>
+
+        <div id="view2" class="view" style="display:none;">
+             <div id="chatReply">
+
+            </div>
+    <form method="post" enctype="multipart/form-data" action="/DataGeneration/chat">
+
+        <input type="text" id="chat" name="chat" required/>
+
+        <button type="submit" id="submitChat">Submit</button>
+    </form>
+
+        </div>
+
+        <div id="view3" class="view" style="display:none;">
+             <form method="post" enctype="multipart/form-data" action="/DataGeneration/upload">
+        <label for="File">Select a SQL File:</label>
+        <input type="file" id="sqlFile" name="sqlFile" accept=".sql" required/>
+
+        <button type="submit">Upload</button>
+            </form>
+        </div>
+</div>

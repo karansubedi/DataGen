@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "text": "Varchar",
+      "value": "Varchar"
+    },
+    {
+      "text": "DateTime",
+      "value": "DateTime"
+    },
+    {
+      "text": "NVARCHAR",
+      "value": "NVARCHAR"
+    }
+  ]
+}

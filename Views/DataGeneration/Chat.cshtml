@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div id="chatReply">
+
+    </div>
+    <form method="post" enctype="multipart/form-data" action="/DataGeneration/chat">
+        
+        <input type="text" id="chat" name="chat" required/>
+
+        <button type="submit" id="submitChat">Submit</button>
+    </form>
+</body>
