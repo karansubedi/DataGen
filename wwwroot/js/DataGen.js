@@ -5,7 +5,7 @@ const input = document.querySelector(".form-group");
 
 const removebutton = document.querySelector('.removeButton');
 
-const container = document.querySelector('.container');
+const container = document.querySelector('.container-inside');
 
 const form = document.getElementById('dynamicForm');
 
@@ -165,7 +165,7 @@ function populateDropdown() {
 
 function addInputField(event) {
     event.preventDefault();
-    const input = document.querySelector('.container .form-group');
+    const input = document.querySelector('.container-inside .form-group');
     var newFormGroup = document.createElement('div');
     newFormGroup.classList.add('form-group');
     newFormGroup.innerHTML = input.innerHTML;
@@ -177,9 +177,9 @@ function addInputField(event) {
 
 
 function removefield(event) {
-    const formGroups = document.querySelectorAll('.form-group');
+    const formGroups = event.target.closest('.form-group');
 
-    event.target.parentElement.remove();
+    formGroups.remove();
 }
 
 function toggleView(showView, hideViews) {

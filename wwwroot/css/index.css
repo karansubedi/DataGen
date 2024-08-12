@@ -10,7 +10,8 @@ label{
 }
 
 .form-group{
-    display: inline-block;
+    display: flex !important;
+    gap: 10px !important;
 }
 
 h2{
@@ -42,5 +43,9 @@ h2{
 
 #view1{
     display: block; 
+}
+
+.sbtBtn{
+    margin-top : 5px !important;
 }
 

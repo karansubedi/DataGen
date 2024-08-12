@@ -7,34 +7,41 @@
     <div id="view1" class="view">
 @Html.AntiForgeryToken()
 
-       <form id="dynamicForm" method="post" action="/DataGeneration/submitDynamicForm">>
-        <div class="container">
+       <form id="dynamicForm" method="post" action="/DataGeneration/submitDynamicForm">
+        <div class="container-inside">
            
            <div class="wrap">
                <h2>Add Input Fields</h2>
-               <button class="addButton"> + </button>
+               <button class="addButton btn btn-primary"> + </button>
            </div>
 
-        <div class="form-group">
-       
+        <div class="form-group col-md-12">
+       <div class="col-md-2">
         <label> FieldName </label>
-        <input type="text" name="FieldName"  value=""/>
+        <input class="form-control" type="text" name="FieldName"  value=""/>
+        </div>  
         
-        
+        <div class="col-md-2">
             <label> DataType</label>
-            <select class="dataTypeDropdown" id="dataTypeDropdownValue" name="DataType">
+            <select class="dataTypeDropdown form-select form-select-md" id="dataTypeDropdownValue" name="DataType">
 
             </select>
+        </div>
             
-            
+        <div class="col-md-2">
             <label>Field Description</label>
-            <input type="text" name="FieldDescription" value=""/>
-            
-        <button class="removeButton" style="display:none"> X </button>
+            <input class="form-control col-md-3" type="text" name="FieldDescription" value=""/>
+        </div>
+        <div class="rmvbtnwrap">
+        <button class="removeButton btn btn-primary" style="display:none;"> X </button>
+        </div>
         
         </div>
-         <button type="submit">Submit</button>
+        
         </div>
+        <div class="sbtwrap">
+         <button class="btn btn-success sbtBtn" type="submit">Submit</button>
+         </div>
         </form>
         </div>
 
