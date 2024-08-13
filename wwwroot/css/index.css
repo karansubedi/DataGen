@@ -5,8 +5,13 @@
     
 }
 
-label{
-    color : white;
+.view {
+    background: rgb(24,46,14);
+    background: linear-gradient(90deg, rgba(24,46,14,1) 0%, rgba(27,83,19,1) 35%, rgba(30,93,24,1) 100%);
+}
+
+label {
+    color: white;
 }
 
 .form-group{

@@ -2,16 +2,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div class="container mt-4">
 
-    <div id="view1" class="view">
+    <div id="view1" class="view mb-4">
 @Html.AntiForgeryToken()
 
        <form id="dynamicForm" method="post" action="/DataGeneration/submitDynamicForm">
         <div class="container-inside">
            
            <div class="wrap">
-               <h2>Add Input Fields</h2>
+               <h2>Add Fields</h2>
                <button class="addButton btn btn-primary"> + </button>
            </div>
 
