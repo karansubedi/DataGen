@@ -26,7 +26,7 @@ const view2 = document.getElementById('view2');
 const view3 = document.getElementById('view3');
 
 
-view1Button.addEventListener('click', function () {
+/*view1Button.addEventListener('click', function () {
     toggleView(view1, [view2, view3]);
     setActiveButton(view1Button, [view2Button, view3Button]);
 });
@@ -40,10 +40,9 @@ view2Button.addEventListener('click', function () {
 view3Button.addEventListener('click', function () {
     toggleView(view3, [view1, view2]);
     setActiveButton(view3Button, [view1Button, view2Button]);
-});
+});*/
 
 
-chatButton.addEventListener('click', chatWithLLAMA);
 
 element.addEventListener('click', function (event) {
     event.preventDefault();

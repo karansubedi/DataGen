@@ -4,7 +4,7 @@
 
 <div class="container mt-4">
 
-    <div id="view1" class="view mb-4">
+    <div id="view1" class="view mb-4 card">
 @Html.AntiForgeryToken()
 
        <form id="dynamicForm" method="post" action="/DataGeneration/submitDynamicForm">
@@ -12,7 +12,7 @@
            
            <div class="wrap">
                <h2>Add Fields</h2>
-               <button class="addButton btn btn-primary"> + </button>
+               <button class="addButton btn btn-primary" type="button"> + </button>
            </div>
 
         <div class="form-group col-md-12">
@@ -33,7 +33,7 @@
             <input class="form-control col-md-3" type="text" name="FieldDescription" value=""/>
         </div>
         <div class="rmvbtnwrap">
-        <button class="removeButton btn btn-primary" style="display:none;"> X </button>
+        <button class="removeButton btn btn-danger" style="display:none;"> X </button>
         </div>
         
         </div>
@@ -45,25 +45,31 @@
         </form>
         </div>
 
-        <div id="view2" class="view" style="display:none;">
+        <div id="view2" class="view mb-4 card">
+            <div class="text-input">
+            <h2>Dataset Type you want in return:</h2>
              <div id="chatReply">
 
             </div>
-    <form method="post" enctype="multipart/form-data" action="/DataGeneration/chat">
+    <form method="post" enctype="multipart/form-data" action="/DataGeneration/chatWithLLAMA">
+        <div class="col-md-4">
+        <input type="text" class="form-control col-md-4" id="chat" name="chat" required/>
 
-        <input type="text" id="chat" name="chat" required/>
-
-        <button type="submit" id="submitChat">Submit</button>
+        <button type="submit" class="btn btn-success" id="submitChats">Submit</button>
+        </div>
+        
     </form>
-
+    </div>
         </div>
 
-        <div id="view3" class="view" style="display:none;">
+        <div id="view3" class="view mb4 card" >
+            <div class="col-md-4 sqlUploads">
              <form method="post" enctype="multipart/form-data" action="/DataGeneration/upload">
-        <label for="File">Select a SQL File:</label>
-        <input type="file" id="sqlFile" name="sqlFile" accept=".sql" required/>
+        <h2>Select a SQL File:</h2>
+        <input class="form-control col-md-4" type="file" id="sqlFile" name="sqlFile" accept=".sql" required/>
 
-        <button type="submit">Upload</button>
+        <button class="btn btn-success" id="uploadSql" type="submit">Upload</button>
             </form>
+            </div>
         </div>
 </div>

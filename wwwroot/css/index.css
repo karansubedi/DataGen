@@ -2,12 +2,44 @@
     
     background: rgb(24,46,14);
     background: linear-gradient(90deg, rgba(24,46,14,1) 0%, rgba(27,83,19,1) 35%, rgba(30,93,24,1) 100%);
-    
 }
 
 .view {
     background: rgb(24,46,14);
     background: linear-gradient(90deg, rgba(24,46,14,1) 0%, rgba(27,83,19,1) 35%, rgba(30,93,24,1) 100%);
+    height: auto !important;
+}
+
+.btn-success{
+    margin-bottom: 10px;
+}
+
+.view2{
+    margin-left: 10px;
+}
+
+#submitChats{
+    margin-top: 10px !important;
+}
+
+#uploadSql{
+    margin-top: 10px;
+}
+
+.text-input{
+    margin-left: 10px;
+}
+
+.sqlUploads{
+    margin-left: 10px;
+}
+
+.card {
+    z-index: 5px;
+}
+
+#dynamicForm{
+    margin-left: 10px;
 }
 
 label {
@@ -19,8 +51,9 @@ label {
     gap: 10px !important;
 }
 
-h2{
-    color : white;
+.view h2{
+    color : white !important;
+    opacity:0.75;
 }
 
 .topnav{

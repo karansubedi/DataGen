@@ -135,16 +135,44 @@ namespace DataGen.Controllers
         }
 
         [HttpPost("/DataGeneration/chatWithLLAMA")]
-        public async Task<string> chatWithLLAMA([FromBody] FormData formData)
+        public async Task<IActionResult> chatWithLLAMA(string chat)
         {
             
             string token = await LLAMAAPIHelper.getToken();
 
-            string answer = await LLAMAAPIHelper.PromptingLLAMA(formData?.chatValue?? "", token);
+            string prompt = string.Format("I need to generate an SQL insert script based on the following description provided by the user: " +
+                "'{0}'. The insert script should include at least 20 rows of data, with each row containing heterogeneous values." +
+                " Identify the necessary columns for the dataset based on the description.    Assume reasonable data types for each column (e.g., INT, VARCHAR, DATE, etc.)." +
+                " Generate the INSERT INTO SQL statement for the appropriate table.   Ensure that the values for each column are diverse to reflect heterogeneous data containing nepalese origin names, add null values as well." +
+                "   Provide the final SQL script that includes the table creation and the insert statements.Example user input could be something like 'account data' or 'customer details'. Generate the SQL script accordingly without any create table scripts" +
+                "also return sql without mentioning column names in values section but only in Insert into command.",chat);
+
+            string answer = await LLAMAAPIHelper.PromptingLLAMA(prompt, token);
 
             var apiResponse = JsonSerializer.Deserialize<ApiResponse>(answer);
 
-            return apiResponse?.response ?? "No Reply";
+            if (apiResponse.status == 200)
+            {
+                apiResponse.response = apiResponse.response.Replace("\n", "");
+
+                int startIndex = apiResponse.response.IndexOf("```sqlINSERT") + 6;
+
+                var sqlContent = apiResponse.response.Substring(startIndex);
+
+                int endIndex = sqlContent.IndexOf(";```") + 1;
+
+                sqlContent = sqlContent.Substring(0, endIndex);
+
+                var byteArray = System.Text.Encoding.UTF8.GetBytes(sqlContent);
+                var stream = new MemoryStream(byteArray);
+
+                return File(stream, "application/sql", "data.sql");
+
+            }
+            else
+            {
+                return StatusCode(500, "Error processing the file.");
+            }
         }
 
         }
